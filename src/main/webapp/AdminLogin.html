@@ -91,7 +91,7 @@
 <body>
 <div id="loginDiv">
     <form action="" id="form">
-        <h1 style="text-align: center;color: aliceblue;">LOGIN  IN</h1>
+        <h1 style="text-align: center;color: aliceblue;">系统登录入口</h1>
         <p>User Name:<input name="account" id="userNname" type="text" required><label id="name_trip"></label></p>
 
         <p>Password:  <input name="password" id="password" type="password" required
@@ -131,13 +131,13 @@
             let password = $("#password").val();
             let birth = $("#birth-date").val();
             console.log(birth)
-            jQuery.ajax("views/user/userMain",{
+            jQuery.ajax("views/user/AdminMain",{
                 method:"GET",
                 data:{account,password,birth},
                 dataType:"json",
                 success(resp){
                     if (resp){
-                        window.location.href = "/userMain";
+                        window.location.href = "/AdminMain";
                     }else {
                         let title = document.querySelector(".title>p");
                         title.innerHTML = resp;

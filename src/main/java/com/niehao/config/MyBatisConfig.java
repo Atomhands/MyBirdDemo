@@ -1,4 +1,4 @@
-package com.iweb.config;
+package com.niehao.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.iweb.model;
+package com.niehao.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

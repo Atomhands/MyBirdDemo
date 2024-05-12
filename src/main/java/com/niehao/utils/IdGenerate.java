@@ -1,4 +1,4 @@
-package com.iweb.utils;
+package com.niehao.utils;
 
 import cn.hutool.core.lang.UUID;
 

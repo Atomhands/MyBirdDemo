@@ -1,4 +1,4 @@
-package com.iweb.test;
+package com.niehao.test;
 
 public class User {
     private String name;

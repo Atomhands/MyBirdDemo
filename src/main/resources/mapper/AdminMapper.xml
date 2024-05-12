@@ -2,11 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.niehao.mapper.AudioMapper">
-    <resultMap id="baseMap" type="com.niehao.model.BirdMFCC">
-        <id property="birdId" column="ID"/>
-        <result property="birdName" column="name"/>
-        <result property="mfcc" column="password"/>
+<mapper namespace="com.niehao.mapper.AdminMapper">
+    <resultMap id="baseMap" type="com.niehao.model.Admin">
+        <id property="adminId" column="ID"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
     </resultMap>
-    
+    <select id="queryLog" resultMap="baseMap">
+        SELECT * FROM Admin_login where NAME = #{name};
+    </select>
 </mapper>

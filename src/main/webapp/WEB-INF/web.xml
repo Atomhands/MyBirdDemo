@@ -7,6 +7,6 @@
          metadata-complete="false">
   <display-name>Archetype Created Web Application Spring3</display-name>
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>userlogin.html</welcome-file>
   </welcome-file-list>
 </web-app>

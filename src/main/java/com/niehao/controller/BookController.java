@@ -1,11 +1,11 @@
-package com.iweb.controller;
+package com.niehao.controller;
 
-import com.iweb.dto.DataGrid;
-import com.iweb.http.HttpResult;
-import com.iweb.model.Book;
-import com.iweb.service.BookService;
-import com.iweb.test.UserAction;
-import com.iweb.utils.IdGenerate;
+import com.niehao.dto.DataGrid;
+import com.niehao.http.HttpResult;
+import com.niehao.model.Book;
+import com.niehao.service.BookService;
+import com.niehao.test.UserAction;
+import com.niehao.utils.IdGenerate;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;

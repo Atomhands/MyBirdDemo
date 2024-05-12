@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iweb.mapper.BookMapper">
+<mapper namespace="com.niehao.mapper.BookMapper">
 
-    <resultMap id="baseMap" type="com.iweb.model.Book">
+    <resultMap id="baseMap" type="com.niehao.model.Book">
         <id property="bookId" column="BOOK_ID"/>
         <result property="bookName" column="BOOK_NAME"/>
         <result property="publisher" column="PUBLISHER"/>
@@ -12,7 +12,7 @@
         <result property="bookType" column="BOOK_TYPE"/>
         <result property="remain" column="REMAIN"/>
     </resultMap>
-    <insert id="insert" parameterType="com.iweb.model.Book">
+    <insert id="insert" parameterType="com.niehao.model.Book">
         INSERT INTO TB_BOOK_INFO VALUES
         (#{bookId},#{bookName},#{publisher},#{author},#{bookType},#{remain})
     </insert>
@@ -44,7 +44,7 @@
         SELECT COUNT(*) FROM TB_BOOK_INFO
     </select>
     <select id="selectList" resultMap="baseMap">
-        SELECT * FROM TB_BOOK_INFO
+        SELECT * FROM MFCC
     </select>
 
 </mapper>

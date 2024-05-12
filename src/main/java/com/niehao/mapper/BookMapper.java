@@ -1,6 +1,6 @@
-package com.iweb.mapper;
+package com.niehao.mapper;
 
-import com.iweb.model.Book;
+import com.niehao.model.Book;
 
 import java.util.List;
 
@@ -8,5 +8,5 @@ public interface BookMapper {
 
     List<Book> selectList();
 
-    void insert(Book book);
+    //void insert(Book book);
 }

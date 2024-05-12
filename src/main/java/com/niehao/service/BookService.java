@@ -1,11 +1,10 @@
-package com.iweb.service;
+package com.niehao.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.iweb.dto.DataGrid;
-import com.iweb.error.BookException;
-import com.iweb.mapper.BookMapper;
-import com.iweb.model.Book;
+import com.niehao.dto.DataGrid;
+import com.niehao.mapper.BookMapper;
+import com.niehao.model.Book;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +23,7 @@ public class BookService {
 
     @Transactional(rollbackFor = RuntimeException.class)
     public void saveBook(Book book) {
-        bookMapper.insert(book);
+        //bookMapper.insert(book);
         // throw new BookException("新增book失败");
     }
 

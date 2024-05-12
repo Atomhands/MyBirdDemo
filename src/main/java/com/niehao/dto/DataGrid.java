@@ -1,4 +1,4 @@
-package com.iweb.dto;
+package com.niehao.dto;
 
 import lombok.Data;
 
