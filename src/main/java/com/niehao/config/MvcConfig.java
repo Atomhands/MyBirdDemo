@@ -5,7 +5,6 @@ import com.niehao.auth.ViewInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -30,7 +29,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/bossmain").setViewName("boss/main");
+        registry.addViewController("/AdminMain").setViewName("Admin/AdminMain");
         //registry.addViewController("/views/boss/listEmp").setViewName("boss/redirectEmp");
         registry.addViewController("/boss/listEmp");
         registry.addViewController("/bossListEmp").setViewName("boss/listEmp");

@@ -11,4 +11,7 @@
     <select id="queryLog" resultMap="baseMap">
         SELECT * FROM Admin_login where NAME = #{name};
     </select>
+    <select id="queryAccount" resultType="com.niehao.model.Admin">
+        SELECT *FROM Admin_login WHERE NAME = #{name};
+    </select>
 </mapper>

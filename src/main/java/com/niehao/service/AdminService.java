@@ -5,7 +5,6 @@ import com.niehao.model.Admin;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * ClassName: AdminService
@@ -22,5 +21,8 @@ public class AdminService {
     private AdminMapper mapper;
     public Admin queryLog(String admin) {
         return mapper.queryLog(admin);
+    }
+    public Admin queryAccount(String account){
+        return mapper.queryAccount(account);
     }
 }

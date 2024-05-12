@@ -97,7 +97,7 @@
         <p>Password:  <input name="password" id="password" type="password" required
             maxlength="16" minlength="4"
         ><label id="password_trip"></label></p>
-        <p>选择出生日期:  <input name="hireDate" id="birth-date" type="datetime-local" required><label id="birth_trip"></label></p>
+<!--        <p>选择出生日期:  <input name="hireDate" id="birth-date" type="datetime-local" required><label id="birth_trip"></label></p>-->
 <!--        <div id="check" class="checkedButton">-->
 <!--                <input type="radio" value="员工" name="T" id="Emp"/>员工-->
 <!--                <input type="radio" value="用户" name="T" id="User"/>用户-->
@@ -132,8 +132,8 @@
             let birth = $("#birth-date").val();
             console.log(birth)
             jQuery.ajax("views/user/AdminMain",{
-                method:"GET",
-                data:{account,password,birth},
+                method:"POST",
+                data:{account,password},
                 dataType:"json",
                 success(resp){
                     if (resp){

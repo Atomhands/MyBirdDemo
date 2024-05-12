@@ -1,9 +1,8 @@
 package com.niehao;
 
 import com.niehao.config.MvcConfig;
-import com.niehao.config.RedisConfig;
-import com.niehao.config.SpringConfig;
 import com.niehao.config.MybatisConfig;
+import com.niehao.config.SpringConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -12,7 +11,7 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
     //初始化config  配置文件
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{SpringConfig.class, MybatisConfig.class, RedisConfig.class};
+        return new Class[]{SpringConfig.class, MybatisConfig.class};
     }
 
     @Override

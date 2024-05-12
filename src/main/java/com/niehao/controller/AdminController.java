@@ -2,6 +2,7 @@ package com.niehao.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.niehao.http.HttpResult;
 import com.niehao.model.Admin;
 import com.niehao.service.AdminService;
 import com.niehao.service.AudioService;
@@ -33,18 +34,22 @@ public class AdminController {
         session = null;
     }
     @RequestMapping(value = "AdminMain",method = RequestMethod.GET)
-    public String login(@RequestParam("account") String name,
-                        @RequestParam("password") String password,
-                        Admin admin) {
-        admin = service.queryLog(name);
-        if (ObjectUtil.isEmpty(admin.getName())) {
-            System.out.println("账号 不存在");
+    public HttpResult login(HttpServletRequest req, Admin admin) {
+        Admin user = service.queryAccount(admin.getAccount());
+        if (ObjectUtil.isEmpty(user.getAccount())){
+            throw new RuntimeException("账号不存在");
         }
-        if (StrUtil.equals(admin.getPassword(), password)) {
-            System.out.println("密码 错误");
-        } else {
-            return "templates/userMain/main";
+        if (!StrUtil.equals(user.getPassword(),user.getPassword())){
+            throw new RuntimeException("密码错误");
         }
-        return "templates/userMain/main";
+//        String birthDate = "";
+//        String birth = user.getBirth();
+//        if (birth.contains("T")) {
+//            birthDate = birth.replace("T", " ");
+//        }
+//        user.setDate(sdf.parse(birthDate));
+//        //保存登陆的日期
+        //session.setAttribute("birthDate",birthDate);
+        return HttpResult.SUCCESS("登陆成功","登陆成功");
     }
 }
