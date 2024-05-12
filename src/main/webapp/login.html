@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    引用 reset css   -->
+    <link rel="stylesheet" href="static/css/reset.css">
+    <style>
+
+        body{
+            /*background-color: rgb(196,225,197);*/
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-image: url(/static/img/login.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%
+
+        }
+        .login_contents{
+            margin-top: 180px;
+            height: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: row;
+
+        }
+        .login_wrap{
+            width: 500px;
+            height: 400px;
+            display: flex;
+            background-color: beige;
+            flex-direction: column;
+            box-shadow: 0 0 9px rgba(156,89,86,0.6);
+        }
+        .login_wrap .register_title{
+            height: 100px;
+            padding: 48px;
+            justify-content: center;
+        }
+        .login_wrap .login_body{
+            height: 200px;
+            justify-content: center;
+
+        }
+        .login_wrap .register_title .login_title{
+            font-size: 24px;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+        }
+        .login_body .username, .password, .login_btn{
+            font-size: 24px;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="login_contents">
+    <div class="login_wrap">
+        <div class="register_title">
+            <div class="login_title">
+                <h2>Admin-login</h2>
+            </div>
+        </div>
+        <div class="login_body">
+            <form id="loginInSys">
+
+                <div class="username">
+
+                        <input id="account" type="text" name="account" placeholder="please input account" value=""
+                        maxlength="16" required>
+                </div>
+                <div class="password">
+                        <input id="password" type="text" name="password" placeholder="please input password" value=""
+                        minlength="3" maxlength="16" required>
+                </div>
+                <div class="login_btn" >
+                    <button type="submit" onclick="_login()" value="login">
+                        登录
+                    </button>
+                </div>
+                <div class="title">
+                    <p id="error-message" style="color: red">  </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script src="static/js/jQuery-2.1.1.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#loginInSys").submit(function (event){
+            event.preventDefault();
+        })
+    })
+    function _login(){
+        //获取输入信息  账号和密码
+        let account = document.querySelector(".username>input[name='account']").value;
+        let password = document.querySelector(".password>input[name='password']").value;
+        //账号密码验证
+        let title = document.querySelector(".title>p");
+        if (account.length === 0){
+            title.innerHTML = '账号不能为空';
+            return;
+        }
+        if (password.length === 0){
+            title.innerHTML = '密码不能为空';
+            return;
+        }
+        //发送ajax请求  ------------------------------------
+        jQuery.ajax("/views/boss/main",{
+        method:"GET",
+            data:{account,password},
+            dataType:"json",
+            success(resp){
+            if (resp){
+                window.location.href = "/bossmain";
+            }else {
+                let title = document.querySelector(".title>p");
+                title.innerHTML = data.message;
+                $('#error-message').text('登录失败：' + data.message);
+            }
+            }
+        })
+        //
+     }
+</script>
+</body>
+</html>
